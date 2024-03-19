@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Obstacle Avoidance Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #gameContainer {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 2px solid #000;
+            background-color: #fff;
+        }
+
+        #player {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* 모양을 공으로 변경 */
+            background-color: blue;
+        }
+
+        .obstacle {
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="player"></div>
+    </div>
+
+    <script>
+        const gameContainer = document.getElementById("gameContainer");
+        const player = document.getElementById("player");
+        let playerLeft = 50;
+        const playerWidth = 40;
+        const playerHeight = 40;
+        let score = 0;
+        let isGameOver = false;
+
+        function createObstacle() {
+            const obstacle = document.createElement("div");
+            obstacle.classList.add("obstacle");
+            obstacle.style.left = `${Math.random() * (gameContainer.offsetWidth - 20)}px`;
+            gameContainer.appendChild(obstacle);
+
+            const obstacleInterval = setInterval(() => {
+                const obstaclePosition = obstacle.offsetTop;
+                if (obstaclePosition >= gameContainer.offsetHeight - playerHeight && obstaclePosition <= gameContainer.offsetHeight &&
+                    playerLeft >= obstacle.offsetLeft - playerWidth && playerLeft <= obstacle.offsetLeft + 20) {
+                    clearInterval(obstacleInterval);
+                    isGameOver = true;
+                    alert(`Game over! Your score: ${score}`);
+                } else {
+                    obstacle.style.top = `${obstacle.offsetTop + 20}px`; // 장애물 더 빨리 떨어지도록 변경
+                    if (obstacle.offsetTop > gameContainer.offsetHeight) {
+                        obstacle.remove();
+                        score++;
+                    }
+                }
+            }, 50);
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft" && playerLeft > 0) {
+                playerLeft -= 10;
+            } else if (e.key === "ArrowRight" && playerLeft < gameContainer.offsetWidth - playerWidth) {
+                playerLeft += 10;
+            }
+            player.style.left = `${playerLeft}px`;
+        });
+
+        setInterval(() => {
+            if (!isGameOver) {
+                createObstacle();
+            }
+        }, 1000); // 장애물 생성 간격을 빠르게 변경
+    </script>
+</body>
+</html>
