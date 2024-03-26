@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>GuGuDan</title>
+    <script>
+      window.onload = function () {
+        // DOM 조작하기
+        const mygugudan = document.getElementById("gugudan_program");
+
+        mygugudan.innerHTML = "Click the button";
+        mygugudan.style.color = "black";
+
+        // 이벤트 처리 방법
+        const Button1 = document.getElementById("1");
+        const Button2 = document.getElementById("2");
+        const Button3 = document.getElementById("3");
+        const Button4 = document.getElementById("4");
+        const Button5 = document.getElementById("5");
+        const Button6 = document.getElementById("6");
+        const Button7 = document.getElementById("7");
+        const Button8 = document.getElementById("8");
+        const Button9 = document.getElementById("9");
+
+        Button1.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 1;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+        Button2.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 2;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+        Button3.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 3;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+        Button4.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 4;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+        Button5.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 5;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+        Button6.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 6;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+        Button7.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 7;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+        Button8.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 8;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+        Button9.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+          actionStatus.innerHTML = "Table: ";
+          for(let i = 1; i <= 9; i++) {
+            let clickStatus = document.createElement("div");
+            clickStatus.setAttribute("class", "status");
+            clickStatus.innerHTML = i * 9;
+            actionStatus.appendChild(clickStatus);
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h1>GuGuDan</h1>
+
+    <p id="gugudan_program">Click the button.</p>
+    <button id="1">1</button>
+    <button id="2">2</button>
+    <button id="3">3</button>
+    <button id="4">4</button>
+    <button id="5">5</button>
+    <button id="6">6</button>
+    <button id="7">7</button>
+    <button id="8">8</button>
+    <button id="9">9</button>
+    <p id="action-status">Table: </p>
+  </body>
+</html>

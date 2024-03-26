@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #8a2be2; /* 보라색 배경 */
+        }
+
+        .calculator {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Simple Calculator</h1>
+        <input type="text" id="num1" placeholder="Enter a number">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" id="num2" placeholder="Enter another number">
+        <button onclick="calculate()">Calculate</button>
+        <p id="result">Result: </p>
+    </div>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operator = document.getElementById("operator").value;
+            let result;
+
+            switch(operator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = "Invalid operator";
+            }
+
+            document.getElementById("result").textContent = "Result: " + result;
+        }
+    </script>
+</body>
+</html>
